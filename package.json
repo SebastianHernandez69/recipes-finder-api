@@ -1,0 +1,35 @@
+{
+  "name": "mobile-app",
+  "version": "1.0.0",
+  "main": "src/server.ts",
+  "scripts": {
+    "dev": "nodemon src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.1.0",
+    "dotenv": "^17.2.1",
+    "drizzle-kit": "^0.31.4",
+    "eslint": "^9.32.0",
+    "express": "^5.1.0",
+    "install": "^0.13.0",
+    "nodemon": "^3.1.10",
+    "npm": "^11.5.2",
+    "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.1",
+    "@types/cors": "^2.8.19",
+    "@types/cron": "^2.0.1",
+    "cors": "^2.8.5",
+    "cron": "^4.3.2",
+    "drizzle-orm": "^0.44.4",
+    "postgres": "^3.4.7"
+  }
+}
