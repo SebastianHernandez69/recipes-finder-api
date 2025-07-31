@@ -4,11 +4,12 @@
     "module": "commonjs",
     "outDir": "./dist",
     "rootDir": "./src",
+    "types": ["node"],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
   "include": ["src/**/*", "drizzle.config.js"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }

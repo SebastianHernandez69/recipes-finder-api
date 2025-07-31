@@ -1,20 +1,19 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import { ENV } from "./config/env";
 import { db } from "./config/db";
 import { favorites } from "./db/schema";
 import { eq, and } from "drizzle-orm";
-import postgres from "postgres";
 
 const app = express();
 const PORT = ENV.PORT;
 
 app.use(express.json());
 
-app.get("/api/health", (req, res) => {
+app.get("/api/health", (req: Request, res: Response) => {
     res.status(200).json({ success: true, message: "API is running" });
 });
 
-app.post("/api/favorites", async (req, res) => {
+app.post("/api/favorites", async (req: Request, res: Response) => {
     try {
         const { userId, recipeId, title, image, cookTime, servings } = req.body;
 
@@ -42,7 +41,7 @@ app.post("/api/favorites", async (req, res) => {
     }
 });
 
-app.delete("/api/favorites/:userId/:recipeId", async (req, res) => {
+app.delete("/api/favorites/:userId/:recipeId", async (req: Request, res: Response) => {
     try {
         const { userId, recipeId } = req.params;
 
@@ -62,7 +61,7 @@ app.delete("/api/favorites/:userId/:recipeId", async (req, res) => {
     }
 });
 
-app.get("/api/favorites/:userId", async (req, res) => {
+app.get("/api/favorites/:userId", async (req: Request, res: Response) => {
     try {
         const { userId } = req.params;
 
@@ -73,7 +72,7 @@ app.get("/api/favorites/:userId", async (req, res) => {
         const userFavorites = await db.select().from(favorites).where(eq(favorites.userId, userId));
         
         res.status(200).json(userFavorites);
-        
+
     } catch (error) {
         res.status(500).json({ message: "Internal server error" });
     }
